@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##　userテーブル
 
-Things you may want to cover:
+| Colum         | Type     | Option          |
+|--------------------------------------------|
+| nickname      | string   |
+| email         | string   |
+| encrypted     | string   |
+| name          | string   |
+| date of birth | string   |
 
-* Ruby version
+##　productテーブル
 
-* System dependencies
+| Colum            | Type     | Option          |
+|-----------------------------------------------|
+| product name     | string   |
+| amount of money  | string   |
+| price            | string   |
+| seller           | string   |
+| category         | string   |
+| situation        | string   |
+| area             | string   |
+| shipment         | string   |
 
-* Configuration
+## purchaseテーブル
 
-* Database creation
+| Colum            | Type     | Option          |
+|-----------------------------------------------|
+| product name     | string   |
+| amount of money  | string   |
+| price            | string   |
+| card information | string   |
+| expiry           | string   |
+| security code    | string   |
 
-* Database initialization
+## sipping addressテーブル
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Colum            | Type     | Option          |
+|-----------------------------------------------|
+| post code        | string   |
+| prefectures      | string   |
+| municipality     | string   |
+| address          | string   |
+| building name    | string   |
+| phone number     | string   |
