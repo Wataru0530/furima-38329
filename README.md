@@ -1,46 +1,43 @@
 # README
 
-##　userテーブル
+##　usersテーブル
 
 | Colum         | Type     | Option          |
 |--------------------------------------------|
-| nickname      | string   |
-| email         | string   |
-| encrypted     | string   |
-| name          | string   |
-| date of birth | string   |
+| nickname      | string   | null: false
+| email         | string   | null: false
+| encrypted     | string   | null: false
+| name          | string   | null: false
+| birth         | string   | null: false
 
-##　productテーブル
-
-| Colum            | Type     | Option          |
-|-----------------------------------------------|
-| product name     | string   |
-| amount of money  | string   |
-| price            | string   |
-| seller           | string   |
-| category         | string   |
-| situation        | string   |
-| area             | string   |
-| shipment         | string   |
-
-## purchaseテーブル
+##　productsテーブル
 
 | Colum            | Type     | Option          |
 |-----------------------------------------------|
-| product name     | string   |
-| amount of money  | string   |
-| price            | string   |
-| card information | string   |
-| expiry           | string   |
-| security code    | string   |
+| item name        | string   | null: false
+| info             | text     | null: false
+| category         | string   | null: false
+| situation        | string   | null: false
+| cost             | string   | null: false
+| area             | string   | null: false
+| days             | string   | null: false
+| price            | integer  | null: false
+
+## purchasesテーブル
+
+| Colum            | Type     | Option          |
+|-----------------------------------------------|
+| cardinfo         | string   | null: false
+| expiry           | string   | null: false
+| securitycode     | string   | null: false
 
 ## sipping addressテーブル
 
 | Colum            | Type     | Option          |
 |-----------------------------------------------|
-| post code        | string   |
-| prefectures      | string   |
-| municipality     | string   |
-| address          | string   |
-| building name    | string   |
-| phone number     | string   |
+| code             | string   | null: false
+| area             | string   | null: false
+| city             | string   | null: false
+| address          | string   | null: false
+| building         | string   |
+| phone            | string   | null: false
