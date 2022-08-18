@@ -1,9 +1,9 @@
 class FurimasController < ApplicationController
   #before_action :contributor_confirmation, only: [:destroy]
 
-  #def index
+  def index
     #@user = User.new
-  #end
+  end
 
   #def new
     #@furima = Furima.new
