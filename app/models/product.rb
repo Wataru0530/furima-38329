@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
+  belongs_to :category_id
   has_one_attached :image
 
   validate :item_name,    presence: true
@@ -13,5 +13,5 @@ class Product < ApplicationRecord
   validate :price,        presence: true
   validate :user,         presence: true
 
-  validate :genre_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validate :category_id, numericality: { other_than: 1 , message: "can't be blank"}
 end
