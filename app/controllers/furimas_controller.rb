@@ -5,9 +5,9 @@ class FurimasController < ApplicationController
     #@user = User.new
   end
 
-  #def new
+  def new
     #@furima = Furima.new
-  #end
+  end
 
   #def destroy
     #if @furima.destroy
