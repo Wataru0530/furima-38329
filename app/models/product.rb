@@ -13,6 +13,5 @@ class Product < ApplicationRecord
   validate :price,        presence: true
   validate :user,         presence: true
 
-  validate :genre_id, numericality: { other_than: 1 }
-
+  validate :genre_id, numericality: { other_than: 1 , message: "can't be blank"}
 end
