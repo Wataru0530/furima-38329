@@ -6,7 +6,7 @@ class FurimasController < ApplicationController
   end
 
   def new
-    @furima = Furima.new
+    @product = Product.new
   end
 
   #def destroy
@@ -18,7 +18,7 @@ class FurimasController < ApplicationController
   #end
 
   #def create
-   # @furima = Furima.new(furima_params)
+    #@furima = Furima.new(furima_params)
     #if @furima.save
       #redirect_to root_path
     #else
