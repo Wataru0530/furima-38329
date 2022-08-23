@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: "は半角英数で入力して下さい" }, length: { minimum: 6 }
 
-  #has_many :products,        dependent: :destroy
+  has_many :products,        dependent: :destroy
   #has_many :purchases,       dependent: :destroy
 
 end
