@@ -131,7 +131,7 @@
      <% if @products.present? %>
       <% @products.each do |product| %>
       <li class='list'>
-        <%= link_to furima_products_path(product.id) do %>
+        <%= link_to furima_path(product.id) do %>
         <div class='item-img-content'>
           <%= image_tag product.image, class: "item-img" if product.image.attached? %>
 
