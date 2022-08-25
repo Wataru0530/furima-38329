@@ -3,7 +3,6 @@ class FurimasController < ApplicationController
   #before_action :contributor_confirmation, only: [:destroy]
 
   def index
-    @users = User.new
     @products = Product.all.order(created_at: "DESC")
   end
 
