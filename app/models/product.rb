@@ -16,8 +16,7 @@ class Product < ApplicationRecord
   validates :cost_id,      presence: true, numericality: { other_than: 1}
   validates :area_id,      presence: true, numericality: { other_than: 1}
   validates :day_id,       presence: true, numericality: { other_than: 1}
-  validates :price,        presence: true, numericality: { with: /\A[0-9]+\z/}
-  validates :price,        presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
+  validates :price,        presence: true, numericality: { with: /\A[0-9]+\z/, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
   validates :image,        presence: true, unless: :was_attached?
   
   def was_attached?
