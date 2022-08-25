@@ -4,6 +4,7 @@ class FurimasController < ApplicationController
 
   def index
     @users = User.new
+    @products = Product.all.order(created_at: "DESC")
   end
 
   def new

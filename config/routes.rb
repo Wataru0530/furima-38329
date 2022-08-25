@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'furimas#index'
-  resources :furimas, only: [:index, :new, :create] #:destroy, :create]
- 
+  resources :furimas, only: [:index, :new, :create] do#:destroy, :create]
+    resources :products, only: [:index, :create]
+  end
 end
