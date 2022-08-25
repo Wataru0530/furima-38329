@@ -79,7 +79,7 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include('Price must be greater than or equal to 300')
     end
-    
+
     it '販売価格が¥9999999より多い時は出品できないこと' do
       @product.price = 10_000_000
       @product.valid?
