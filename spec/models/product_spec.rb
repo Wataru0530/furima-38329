@@ -33,31 +33,31 @@ RSpec.describe Product, type: :model do
     end
 
     it 'カテゴリーの情報が必須であること' do
-      @product.category_id = ''
+      @product.category_id = '1'
       @product.valid?
       expect(@product.errors.full_messages).to include("Category is not a number")
     end
 
     it '商品の状態の情報が必須であること' do
-      @product.situation_id = ''
+      @product.situation_id = '1'
       @product.valid?
       expect(@product.errors.full_messages).to include("Situation is not a number")
     end
 
     it '配送料の負担の情報が必須であること' do
-      @product.cost_id = ''
+      @product.cost_id = '1'
       @product.valid?
       expect(@product.errors.full_messages).to include("Cost is not a number")
     end
 
     it '発送元の地域の情報が必須であること' do
-      @product.area_id = ''
+      @product.area_id = '1'
       @product.valid?
       expect(@product.errors.full_messages).to include("Area is not a number")
     end
 
     it '発送までの日数の情報が必須であること' do
-      @product.day_id = ''
+      @product.day_id = '1'
       @product.valid?
       expect(@product.errors.full_messages).to include("Day is not a number")
     end
@@ -84,6 +84,12 @@ RSpec.describe Product, type: :model do
       @product.price = 10_000_000
       @product.valid?
       expect(@product.errors.full_messages).to include('Price must be less than or equal to 9999999')
+    end 
+
+    it 'userが紐づいていないと保存できないこと' do
+      @product.user = nil
+      @product.valid?
+      expect(@product.errors.full_messages).to include('User must exist')
     end
   end
 end
