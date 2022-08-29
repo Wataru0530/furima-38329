@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   belongs_to :day
   belongs_to :user
   has_one_attached :image
-  has_one :edit
 
   validates :item_name,    presence: true, length: { maximum: 40 }
   validates :info,         presence: true, length: { maximum: 1000 }
