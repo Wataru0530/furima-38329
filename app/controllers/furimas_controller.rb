@@ -1,7 +1,7 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_product, only: [:show, :edit, :update]
-  #before_action :contributor_confirmation, only: [:destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :contributor_confirmation, only: [:destroy]
 
   def index
     @products = Product.all.order(created_at: "DESC")
@@ -26,13 +26,11 @@ class FurimasController < ApplicationController
     end
   end
 
-  #def destroy
-    #if @furima.destroy
-      #redirect_to root_path
-    #else
-      #redirect_to root_path
-   #end
-  #end
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    end
+  end
 
   def create
     @product = Product.new(product_params)
@@ -53,8 +51,8 @@ class FurimasController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  #def contributor_confirmation
-    #redirect_to root_path unless current_user == @furima.user
-  #end
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @product.user
+  end
 
 end
