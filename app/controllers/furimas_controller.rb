@@ -1,5 +1,6 @@
 class FurimasController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_product, only: [:show, :edit, :update]
   #before_action :contributor_confirmation, only: [:destroy]
 
   def index
@@ -49,6 +50,10 @@ class FurimasController < ApplicationController
 
   def product_params
     params.require(:product).permit(:item_name, :image, :info, :category_id, :situation_id, :cost_id, :area_id, :day_id, :price).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
   #def contributor_confirmation
