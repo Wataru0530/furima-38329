@@ -1,5 +1,5 @@
 class FurimasController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit]
   #before_action :contributor_confirmation, only: [:destroy]
 
   def index
@@ -16,6 +16,7 @@ class FurimasController < ApplicationController
   
   def edit
     @product = Product.find(params[:id])
+    redirect_to root_path unless current_user.id == @product.user.id
   end
 
   def update
