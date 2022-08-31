@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_235544) do
+ActiveRecord::Schema.define(version: 2022_08_31_064066) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,22 +33,10 @@ ActiveRecord::Schema.define(version: 2022_08_25_235544) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "edits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "item_name", null: false
-    t.text "info", null: false
-    t.integer "category_id", null: false
-    t.integer "situation_id", null: false
-    t.integer "cost_id", null: false
-    t.integer "area_id", null: false
-    t.integer "day_id", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_edits_on_user_id"
-  end
-
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card", null: false
+    t.integer "deadline", null: false
+    t.integer "security", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -68,36 +56,38 @@ ActiveRecord::Schema.define(version: 2022_08_25_235544) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "user_id", null: false
+  create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code", null: false
+    t.integer "area_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "buiding"
+    t.string "phone", null: false
+    t.bigint "information_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_purchases_on_product_id"
-    t.index ["user_id"], name: "index_purchases_on_user_id"
+    t.index ["information_id"], name: "index_residences_on_information_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
+    t.string "firstname", null: false
+    t.string "lastname", null: false
+    t.string "firstnamekana", null: false
+    t.string "lastnamekana", null: false
+    t.date "birth", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "nickname"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "firstnamekana"
-    t.string "lastnamekana"
-    t.date "birth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "edits", "users"
   add_foreign_key "products", "users"
-  add_foreign_key "purchases", "products"
-  add_foreign_key "purchases", "users"
+  add_foreign_key "residences", "information"
 end
