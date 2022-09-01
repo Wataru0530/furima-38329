@@ -18,6 +18,6 @@ class InformationResidence
   def save
     information = Information.create(user_id: user_id, producf_id: product_id)
     Residence.create(code: code, area_id: area_id, city: city, address: address, building: building,
-                           phone: phone, buyer_id: buyer.id)
+                           phone: phone, information_id: information.id)
   end
 end
