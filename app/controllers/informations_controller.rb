@@ -35,7 +35,7 @@ class InformationsController < ApplicationController
   end
 
   def pay_product
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @product.price,
       card: information_params[:token],
