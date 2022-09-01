@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(version: 2022_08_31_064066) do
   end
 
   create_table "information", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card", null: false
-    t.integer "deadline", null: false
-    t.integer "security", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_information_on_product_id"
+    t.index ["user_id"], name: "index_information_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 2022_08_31_064066) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "information", "products"
+  add_foreign_key "information", "users"
   add_foreign_key "products", "users"
   add_foreign_key "residences", "information"
 end
