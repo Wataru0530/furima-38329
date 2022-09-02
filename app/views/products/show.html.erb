@@ -16,7 +16,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-       <%= @product.price %>
+       ¥ <%= @product.price %>
       </span>
       <span class="item-postage">
         <%= @product.cost.name %>
@@ -36,7 +36,7 @@
 
 
     <div class="item-explain-box">
-      <span><%= "商品説明" %></span>
+      <span><%= @product.info %></span>
     </div>
     <table class="detail-table">
       <tbody>

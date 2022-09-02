@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to furima_path(@product.id)
+      redirect_to product_path(@product.id)
     else
       render :edit
     end
