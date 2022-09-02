@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :contributor_confirmation, only: [:destroy]
+  before_action :contributor_confirmation, only: [:edit, :destroy]
 
   def index
     @products = Product.all.order(created_at: "DESC")
@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   end
   
   def edit
-    redirect_to root_path if current_user.id != @product.user.id  ||  @product.information.present?
   end
 
   def update
@@ -52,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @product.user
+    redirect_to root_path unless current_user == @product.user  ||  @product.information.present?
   end
 
 end
