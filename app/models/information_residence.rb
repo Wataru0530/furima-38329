@@ -1,6 +1,6 @@
 class InformationResidence
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :code, :area_id, :city, :address,:building, :phone, :token
+  attr_accessor :user_id, :product_id, :code, :area_id, :city, :address, :building, :phone, :token
 
   with_options presence: true do
     validates :user_id
@@ -16,7 +16,7 @@ class InformationResidence
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
 
   def save
-    information = Information.create(user_id: user_id, producf_id: product_id)
+    information = Information.create(user_id: user_id, product_id: product_id)
     Residence.create(code: code, area_id: area_id, city: city, address: address, building: building,
                            phone: phone, information_id: information.id)
   end
